@@ -1,0 +1,16 @@
+env/.ipynb_checkpoints/
+env/bigsql
+env/etc/
+env/Include/
+env/Lib/
+env/pip-selfcheck.json
+env/pyvenv.cfg
+env/Scripts/
+env/share/
+env/Analysis/.ipynb_checkpoints/
+env/Analysis/__pycache__
+*.pptx
+*.pdf
+*.xlsx
+*.pptx
+*.gz
