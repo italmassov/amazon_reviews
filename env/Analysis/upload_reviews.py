@@ -15,7 +15,7 @@ print('connecting to database')
 engine = create_engine('postgresql://postgres:12345@localhost:5432/amazon_reviews')
 
 # test process reviews date ##############
-index = 278 
+index = 395
 for df in getDFStream('item_dedup.json.gz', splits=200000, start_iteration=index):
     print('iteration %d' % index)
     t = process_reviews(df)

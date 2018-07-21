@@ -36,6 +36,13 @@ def maybe_extract(filename, force=False):
   print(data_folders)
   return data_folders
 
+def countLines(path):
+    g = gzip.open(path, 'rb')
+    line = 0
+    for l in g:
+        line += 1
+    return line
+
 def getDF(path):
   i = 0
   df = {}
@@ -116,6 +123,9 @@ def process_reviews(df):
 #    df2['summary'] = df2['summary'].replace('\x00', '')
     df2['reviewText'] = df2['reviewText'].apply(lambda x: x.replace('\x00', '') if isinstance(x,str) else x)
     
+    if 'reviewerName' not in  df2.columns:
+        df2['reviewerName'] = ''
+    
     return df2[['reviewerID','asin','reviewerName','helpful1','helpful2','helpfulRatio','reviewText','overall','summary','reviewTime']]
 
 
@@ -168,3 +178,4 @@ def getDFStreamFilter(path, category, splits=50000):
     i += 1    
     if i % splits == 0 and i !=0:
         yield pd.DataFrame.from_dict(df, orient='index')
+        
