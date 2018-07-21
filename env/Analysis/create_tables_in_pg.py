@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jun 19 14:24:47 2017
-
 @author: dblitalmk
 """
 # uploading epos ecig data to Database

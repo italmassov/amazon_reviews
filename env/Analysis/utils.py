@@ -108,6 +108,13 @@ def process_reviews(df):
     df2['reviewTime'] = df2[['reviewTime', 'unixReviewTime']].apply(lambda x: process_review_time(x[0], x[1]), axis=1)
     
     df2['reviewText'] = df2['reviewText'].apply(lambda x: x[:35000] if isinstance(x,str) else np.nan)
+
+    df2['summary'] = df2['summary'].apply(lambda x: x[:512] if isinstance(x,str) else np.nan)
+    
+    # removing '\x00' from strings
+#    df2['reviewerName'] = df2['reviewerName'].replace('\x00', '')
+#    df2['summary'] = df2['summary'].replace('\x00', '')
+    df2['reviewText'] = df2['reviewText'].apply(lambda x: x.replace('\x00', '') if isinstance(x,str) else x)
     
     return df2[['reviewerID','asin','reviewerName','helpful1','helpful2','helpfulRatio','reviewText','overall','summary','reviewTime']]
 
