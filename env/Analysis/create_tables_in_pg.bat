@@ -1,1 +1,0 @@
-python -i create_tables_in_pg.py

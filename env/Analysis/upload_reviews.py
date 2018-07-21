@@ -19,11 +19,6 @@ index = 278
 for df in getDFStream('item_dedup.json.gz', splits=200000, start_iteration=index):
     print('iteration %d' % index)
     t = process_reviews(df)
-    
-#    t[t['reviewerName'].apply(lambda x: '\x00' in x if isinstance(x,str) else False)]
-#    t[t['summary'].apply(lambda x: '\x00' in x if isinstance(x,str) else False)]
-#    t[t['reviewText'].apply(lambda x: '\x00' in x if isinstance(x,str) else False)]
-    
     print('   data retrieved')
     t.to_sql('reviews',engine, if_exists='append', index=False)
     print('   data uploaded')
