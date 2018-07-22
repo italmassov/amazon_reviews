@@ -9,8 +9,7 @@ env/Scripts/
 env/share/
 env/Analysis/.ipynb_checkpoints/
 env/Analysis/__pycache__
-*.pptx
 *.pdf
 *.xlsx
-*.pptx
 *.gz
+*.png
